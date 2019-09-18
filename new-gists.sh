@@ -9,6 +9,7 @@ DEBUG=${DEBUG:-''}
 setenv() {
   GITHUB_API_URL=${STUB_GITHUB_API_URL:-'https://api.github.com'}
   DEFAULT_DATE_FROM=${DEFAULT_DATE_FROM:-'20180101T00:00:00Z'}
+  WATCH_PERIOD=${DEFAULT_WATCH_PERIOD:-'300'}
 }
 
 ##
@@ -103,7 +104,7 @@ main() {
   
   # If the 3rd argument is --wait, loop it for 300 secs (5 mins).
   if [ -n "$watch_enabled" ] && [[ "$watch_enabled" == "--watch" ]]; then
-    watch -n 300 $0 $1 $path_to_file
+    watch -n WATCH_PERIOD $0 $1 $path_to_file
   else
     get_gist $1 $path_to_file
   fi

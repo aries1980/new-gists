@@ -103,7 +103,7 @@ main() {
   
   # If the 3rd argument is --wait, loop it for 300 secs (5 mins).
   if [ -n "$watch_enabled" ] && [[ "$watch_enabled" == "--watch" ]]; then
-    watch -n 300 get_gist $1 $path_to_file
+    watch -n 300 $0 $1 $path_to_file
   else
     get_gist $1 $path_to_file
   fi

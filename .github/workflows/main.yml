@@ -8,7 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v1
     - name: Run all the integration tests
       run: |
         cd tests
-        ./tests.sh
+        ./test.sh
